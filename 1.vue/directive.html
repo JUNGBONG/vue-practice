@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{number}}</h1>
+        <!-- <button v-on:click="decrement">감소</button>
+        <button v-on:click="increment">증가</button> -->
+        <button @click="decrement">감소</button>
+        <button @click="increment">증가</button>
+        <h1 v-show="visible">{{message}}</h1>
+        <h1 v-if="value >5">value가 5보다 큽니다.</h1>
+        <h1 v-else-if="value >3">value가 5보다 작고 3보다 큽니다.</h1>
+        <h1 v-else>value가 3보다 작습니다..</h1>
+
+        <ul>
+            <li v-for="(todo, index) in todos">{{index*4}} -{{todo.text}}</li>
+        </ul> 
+        <input type="checkbox" v-model="pa">
+        <br>
+        <img v-bind:src="pa ? padak : bongchu">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                number:0,
+                message:"안녕하세요",
+                visible:true,
+                value:10,
+                todos: [
+                    {text:"vue공부하기"},
+                    {text:"django공부하기"}
+                ],
+                pa:true,
+                bongchu:"https://t1.daumcdn.net/cfile/tistory/240BA143593E90C422",
+                padak:"http://t1.daumcdn.net/liveboard/dinnerqueen/ab4e011bfac4434fb845a81f7a7da771.JPG",
+            },
+            methods:{
+                increment:function(){
+                    this.number++
+                },
+                decrement:function(){
+                    this.number--
+                },
+            }
+        })
+
+        // view 델리미터
+
+    </script>
+
+</body>
+</html>
